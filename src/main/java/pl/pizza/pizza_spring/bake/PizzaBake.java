@@ -1,9 +1,7 @@
 package pl.pizza.pizza_spring.bake;
 
-import org.springframework.stereotype.Component;
 import pl.pizza.pizza_spring.model.Pizza;
 
-@Component
 public class PizzaBake implements IPizzaBake {
 
     private IPizzaBake next;
@@ -13,8 +11,8 @@ public class PizzaBake implements IPizzaBake {
     }
 
     @Override
-    public Pizza bake(String type) {
-        Pizza pizza = next.bake(type);
+    public Pizza bakePizza(String type) {
+        Pizza pizza = next.bakePizza(type);
         pizza.addHistory("Upieczona przez: PizzaBake");
         return pizza;
     }

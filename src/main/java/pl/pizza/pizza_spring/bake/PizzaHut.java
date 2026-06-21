@@ -1,20 +1,12 @@
 package pl.pizza.pizza_spring.bake;
 
-import org.springframework.stereotype.Component;
 import pl.pizza.pizza_spring.model.Pizza;
 
-@Component
 public class PizzaHut implements IPizzaBake {
 
-    private IPizzaBake next;
-
-    public void setNext(IPizzaBake next) {
-        this.next = next;
-    }
-
     @Override
-    public Pizza bake(String type) {
-        Pizza pizza = next.bake(type);
+    public Pizza bakePizza(String type) {
+        Pizza pizza = new Pizza(type);
         pizza.addHistory("Upieczona przez: PizzaHut");
         return pizza;
     }
